@@ -667,8 +667,10 @@ class exposureFrames:
         filters = total_exposure_duration_table["filter_short"]
         pupils = get_pupil_from_filter(filters)
 
-        total_exposure_duration_table["filters"] = pupils.keys()
-        total_exposure_duration_table["pupils"] = pupils.values()
+        total_exposure_duration_table["filters"] = [e.split('+')[0] for e in pupils]
+        total_exposure_duration_table["pupils"] = [e.split('+')[1] for e in pupils]
+
+        print(total_exposure_duration_table)
 
         self.total_exposure_duration_table = total_exposure_duration_table
 
