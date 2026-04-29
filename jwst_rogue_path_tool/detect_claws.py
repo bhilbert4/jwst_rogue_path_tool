@@ -250,7 +250,7 @@ class aptProgram:
                             flux_above_limit = np.copy(fluxes[flux_key])
                             limit_indices = flux_above_limit < lam_thresh
 
-                            flux_boolean_key = f"{filter}_{module}"
+                            flux_boolean_key = f"{pupil if pupil != 'CLEAR' else filter}_{module}"
                             statistics_key = f"{statistic_function.__name__}_{lam_thresh}_{threshold}"
                             flux_boolean[flux_boolean_key][statistics_key] = (
                                 limit_indices
@@ -669,8 +669,6 @@ class exposureFrames:
 
         total_exposure_duration_table["filters"] = [e.split('+')[0] for e in pupils]
         total_exposure_duration_table["pupils"] = [e.split('+')[1] for e in pupils]
-
-        print(total_exposure_duration_table)
 
         self.total_exposure_duration_table = total_exposure_duration_table
 

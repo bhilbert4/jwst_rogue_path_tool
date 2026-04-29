@@ -386,7 +386,7 @@ def create_v3pa_vs_flux_plot(observation, output_directory=None, fontsize=15):
             axes[fltr, mod].plot(flux_values)
             above_threshold = np.copy(flux_values)
 
-            for color_idx, key in enumerate(flux_boolean[f"{filter}_{module}"].keys()):
+            for color_idx, key in enumerate(flux_boolean[f"{pupil if pupil != 'CLEAR' else filter}_{module}"].keys()):
                 stats_function, lam_threshold, bkg_threshold = key.split("_")
                 mask = flux_boolean[f"flux_boolean_{stats_function}_{module}"]
                 for other_module in modules:

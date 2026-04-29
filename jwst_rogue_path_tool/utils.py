@@ -66,7 +66,6 @@ def get_pupil_from_filter(filters):
             filter = fltr
             pupil = "CLEAR"
 
-        pupils[filter] = pupil
         filt_pup.append(f'{filter}+{pupil}')
 
     return filt_pup
