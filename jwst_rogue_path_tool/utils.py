@@ -51,7 +51,7 @@ def get_pupil_from_filter(filters):
     pupils : dict
         A dictionary of key (filter) and value (pupil)
     """
-    pupils = {}
+    filt_pup = []
 
     for fltr in filters:
         if "+" in fltr:
@@ -66,9 +66,9 @@ def get_pupil_from_filter(filters):
             filter = fltr
             pupil = "CLEAR"
 
-        pupils[filter] = pupil
+        filt_pup.append(f'{filter}+{pupil}')
 
-    return pupils
+    return filt_pup
 
 
 def get_pivot_wavelength(pupil, filter):
